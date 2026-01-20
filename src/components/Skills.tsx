@@ -90,24 +90,9 @@ export default function Skills() {
                   </div>
                   <h3 className="text-xl font-bold tracking-tight text-white">{skill.title}</h3>
                 </div>
-                {skill.categories ? (
-                  <div className="space-y-3">
-                    {skill.categories.map((category, catIdx) => (
-                      <div key={catIdx}>
-                        <h4 className="text-white text-xs font-bold mb-1 uppercase tracking-[0.08em] text-zinc-300">
-                          {category.name}
-                        </h4>
-                        <p className="text-zinc-500 text-[14px] leading-relaxed font-medium">
-                          {category.items.join(", ")}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-zinc-400 text-[16px] leading-relaxed font-normal">
-                    {skill.description}
-                  </p>
-                )}
+                <p className="text-zinc-400 text-[16px] leading-relaxed font-normal">
+                  {skill.description}
+                </p>
               </TiltCard>
             </motion.div>
           ))}
