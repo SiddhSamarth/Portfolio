@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Siddh Samarth | Cyber Security Researcher",
   description: "Portfolio of Siddh Samarth, a Cyber Security Researcher & Engineer specializing in Network and Smart Contract Security.",
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
