@@ -116,6 +116,4 @@ This project is private and proprietary.
 
 - **Contributor**: [Anant Kumar](https://github.com/antcybersec) - Development assistance
 
----
 
-For detailed documentation, see [WEBSITE_GUIDE.md](./WEBSITE_GUIDE.md)
