@@ -1,4 +1,4 @@
-# 🛡️ Siddh Samarth - Cybersecurity Portfolio
+# Siddh Samarth - Cybersecurity Portfolio
 
 A modern, performant portfolio website showcasing cybersecurity expertise, projects, and achievements.
 
@@ -8,7 +8,7 @@ A modern, performant portfolio website showcasing cybersecurity expertise, proje
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework**: Next.js 15.1.9 (App Router)
 - **UI Library**: React 19.0.1
@@ -18,7 +18,7 @@ A modern, performant portfolio website showcasing cybersecurity expertise, proje
 - **Icons**: Lucide React
 - **Deployment**: Vercel
 
-## ✨ Features
+## Features
 
 - 🎨 **Modern Dark Theme** - Cybersecurity-inspired design
 - 🎭 **Smooth Animations** - Scroll-triggered and hover effects
@@ -27,7 +27,7 @@ A modern, performant portfolio website showcasing cybersecurity expertise, proje
 - 🎯 **Interactive Elements** - 3D tilt cards, rotating headlines, animated backgrounds
 - 🔒 **Security Focused** - Showcasing SOC operations, threat detection, and security research
 
-## 📦 Sections
+## Sections
 
 - **Hero** - Rotating headlines with 3D background
 - **Academics** - Education and training
@@ -40,7 +40,7 @@ A modern, performant portfolio website showcasing cybersecurity expertise, proje
 - **Skills** - Technical skills and technologies
 - **Footer** - Links and contributor information
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -87,7 +87,7 @@ samarth-portfolio/
 └── package.json         # Dependencies
 ```
 
-## 🎨 Key Components
+## Key Components
 
 - **Navbar** - Fixed navigation with scroll effects
 - **Hero** - Rotating headlines (22 variations)
@@ -95,7 +95,7 @@ samarth-portfolio/
 - **ContactMenu** - Dropdown contact menu
 - **Certificates** - Tab-based certificate viewer
 
-## 🚀 Deployment
+## Deployment
 
 This project is deployed on **Vercel** and automatically rebuilds on every push to the `main` branch.
 
