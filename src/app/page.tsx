@@ -10,9 +10,27 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
 
+const PERSON_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Siddh Samarth",
+  url: "https://siddhsamarth.in",
+  jobTitle: "Cybersecurity Trainee / SOC Analyst",
+  affiliation: { "@type": "Organization", name: "IIT Guwahati" },
+  sameAs: [
+    "https://www.linkedin.com/in/samarthsiddh/",
+    "https://github.com/SiddhSamarth",
+  ],
+};
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black selection:bg-blue-500/30 selection:text-blue-200 pd-acrylic-page">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
+      />
+      <main className="min-h-screen bg-black selection:bg-blue-500/30 selection:text-blue-200 pd-acrylic-page">
       <Navbar />
       <Hero />
       {/* Transition background element */}
@@ -70,5 +88,6 @@ export default function Home() {
       </div>
       <Footer />
     </main>
+    </>
   );
 }

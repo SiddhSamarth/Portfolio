@@ -47,22 +47,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 };
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Siddh Samarth",
-  url: SITE_URL,
-  jobTitle: "Cybersecurity Trainee / SOC Analyst",
-  affiliation: {
-    "@type": "Organization",
-    name: "IIT Guwahati",
-  },
-  sameAs: [
-    "https://www.linkedin.com/in/samarthsiddh/",
-    "https://github.com/SiddhSamarth",
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,13 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
