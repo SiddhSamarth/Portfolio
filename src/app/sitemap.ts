@@ -1,11 +1,9 @@
-import type { MetadataRoute } from "next";
-
-const SITE_URL = "https://siddhsamarth.in";
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: SITE_URL,
+      url: "https://siddhsamarth.in",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
