@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     google: "0eface33-afbc-4011-ab54-de7d8276026f",
   },
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
 export default function RootLayout({
