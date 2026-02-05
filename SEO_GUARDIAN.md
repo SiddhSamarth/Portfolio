@@ -8,11 +8,11 @@ This project is maintained as **SEO Guardian** compliant. Ask for **"SEO status"
 
 | File | Purpose |
 |------|--------|
-| `src/app/sitemap.ts` | Only sitemap generator; must return `MetadataRoute.Sitemap` only. |
+| `src/app/sitemap.xml/route.ts` | Only sitemap generator; returns raw XML via Route Handler (no layout = no `<script/>`). |
 | `src/app/robots.ts` | Only robots generator; must return `MetadataRoute.Robots` only. |
 | `src/app/layout.tsx` | Metadata, OG, Twitter, canonical, Google verification. No `<script/>` in layout. |
 | `src/app/page.tsx` | Home page; holds JSON-LD Person schema (not in layout). |
-| `public/` | Must NOT contain `sitemap.xml` (conflict with app/sitemap.ts). |
+| `public/` | Must NOT contain `sitemap.xml` (would override the route handler). |
 | `vercel.json` | Must NOT rewrite or override `/sitemap.xml` or `/robots.txt`. |
 
 ---
@@ -21,9 +21,9 @@ This project is maintained as **SEO Guardian** compliant. Ask for **"SEO status"
 
 - `public/sitemap.xml`
 - `src/pages/sitemap.xml.js`
-- `src/app/sitemap/route.ts`
-- `src/app/**/sitemap.xml.ts`
-- Any route or metadata that generates sitemap besides `src/app/sitemap.ts`
+- `src/app/sitemap/route.ts` (different path; we use `sitemap.xml/route.ts`)
+- Any other file that generates sitemap besides `src/app/sitemap.xml/route.ts`
+- `src/app/sitemap.ts` (removed; would conflict and can inject `<script/>` via layout)
 
 ---
 
@@ -36,5 +36,5 @@ This project is maintained as **SEO Guardian** compliant. Ask for **"SEO status"
 
 ## When adding new routes
 
-- Add new URLs to `src/app/sitemap.ts` with `url`, `lastModified`, `changeFrequency`, `priority`.
+- Add new URLs to the `URLS` array in `src/app/sitemap.xml/route.ts` (loc, lastmod, changefreq, priority).
 - Set `alternates.canonical` (or per-page canonical) for new pages in their layout or metadata.
