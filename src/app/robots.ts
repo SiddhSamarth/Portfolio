@@ -1,13 +1,11 @@
-import type { MetadataRoute } from "next";
-
-const SITE_URL = "https://siddhsamarth.in";
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: "/",
+      allow: "/"
     },
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: "https://siddhsamarth.in/sitemap.xml"
   };
 }
