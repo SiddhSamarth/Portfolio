@@ -121,6 +121,7 @@ function Hero() {
 
   return (
     <section className="relative w-screen min-h-screen flex flex-col items-center justify-between pt-32 pb-20 overflow-hidden bg-black">
+      <h1 className="sr-only">Siddh Samarth – Cybersecurity Portfolio</h1>
       {/* Exact Unicorn Studio Embed from PD */}
       <motion.div 
         className="absolute inset-0 z-0 overflow-hidden"

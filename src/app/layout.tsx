@@ -4,14 +4,63 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_URL = "https://siddhsamarth.in";
+
 export const metadata: Metadata = {
-  title: "Siddh Samarth | Cyber Security Researcher",
-  description: "Portfolio of Siddh Samarth, a Cyber Security Researcher & Engineer specializing in Network and Smart Contract Security.",
+  title: "Siddh Samarth – Cybersecurity Portfolio",
+  description:
+    "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. Portfolio showcasing threat detection, SIEM, incident response, and security research. IIT Guwahati. View projects and resume.",
+  keywords: [
+    "Siddh Samarth",
+    "Cybersecurity",
+    "SOC Analyst",
+    "Threat Detection",
+    "SIEM",
+    "Incident Response",
+    "IIT Guwahati",
+    "Security Operations",
+    "Cybersecurity Portfolio",
+  ],
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg',
-    apple: '/icon.svg',
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    title: "Siddh Samarth – Cybersecurity Portfolio",
+    description:
+      "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. Portfolio showcasing threat detection, SIEM, incident response, and security research. IIT Guwahati.",
+    siteName: "Siddh Samarth",
+    images: [{ url: `${SITE_URL}/icon.svg`, width: 512, height: 512, alt: "Siddh Samarth" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Siddh Samarth – Cybersecurity Portfolio",
+    description:
+      "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. IIT Guwahati. Threat detection, SIEM, incident response.",
+  },
+  verification: {
+    google: "0eface33-afbc-4011-ab54-de7d8276026f",
+  },
+  metadataBase: new URL(SITE_URL),
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Siddh Samarth",
+  url: SITE_URL,
+  jobTitle: "Cybersecurity Trainee / SOC Analyst",
+  affiliation: {
+    "@type": "Organization",
+    name: "IIT Guwahati",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/samarthsiddh/",
+    "https://github.com/SiddhSamarth",
+  ],
 };
 
 export default function RootLayout({
@@ -21,7 +70,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
