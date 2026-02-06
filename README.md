@@ -4,7 +4,7 @@ A modern, performant portfolio website showcasing cybersecurity expertise, proje
 
 ## 🌐 Live Website
 
-**🔗 [View Live Portfolio](siddhsamarth.in)**
+**🔗 [View Live Portfolio](https://siddhsamarth.in/)**
 
 ---
 
