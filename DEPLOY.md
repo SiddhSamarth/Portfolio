@@ -29,13 +29,18 @@ If you get errors, **close Cursor and reopen it without “Run as administrator�
    ```powershell
    npm install -g vercel
    ```
-2. In the portfolio folder, run:
+2. **Log in** (required before first deploy; run once):
+   ```powershell
+   vercel login
+   ```
+   Follow the browser or email link to authenticate.
+3. In the portfolio folder, run:
    ```powershell
    cd "c:\Users\Tsuki No Me\Downloads\Clinic-Portal-main\Project Discovery\samarth-portfolio"
    vercel
    ```
-3. Log in or sign up when asked. Accept the defaults (Vercel will detect Next.js).
-4. You’ll get a live URL like `https://your-project.vercel.app`. To use **siddhsamarth.in**, add your domain in the Vercel project **Settings → Domains**.
+4. Accept the defaults (Vercel will detect Next.js). If prompted for scope/team, choose your account.
+5. You’ll get a live URL like `https://your-project.vercel.app`. To use **siddhsamarth.in**, add your domain in the Vercel project **Settings → Domains**.
 
 ### Option B: Deploy from GitHub
 

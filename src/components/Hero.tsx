@@ -1,9 +1,10 @@
 "use client";
 
-import { memo, useMemo, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { memo, useCallback } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { FileText, ExternalLink } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 const ResumeButton = memo(function ResumeButton() {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -27,6 +28,7 @@ const ResumeButton = memo(function ResumeButton() {
       href="https://drive.google.com/file/d/1DfS8gUKtsnkcUuPOrxPcHPNl8BCxlvhr/view?usp=sharing"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="View Siddh Samarth resume (opens in new tab)"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setMousePosition({ x: 50, y: 50 })}
       whileHover={{ scale: 1.05, y: -2 }}
@@ -68,31 +70,6 @@ const ResumeButton = memo(function ResumeButton() {
   );
 });
 
-const HEADLINES = [
-  { first: "Threat detection at", second: "engineering speed" },
-  { first: "Hunting threats at", second: "engineering speed" },
-  { first: "Threat intelligence,", second: "engineered for speed" },
-  { first: "SOC operations at", second: "engineering speed" },
-  { first: "Security operations,", second: "engineered for speed" },
-  { first: "Defending systems at", second: "engineering speed" },
-  { first: "Security analysis at", second: "engineering speed" },
-  { first: "Security research at", second: "engineering speed" },
-  { first: "Cybersecurity analysis,", second: "engineered for speed" },
-  { first: "Incident response at", second: "engineering speed" },
-  { first: "Detecting threats,", second: "responding faster" },
-  { first: "From detection to response,", second: "engineered" },
-  { first: "Attacker mindset,", second: "defender execution" },
-  { first: "Offensive insights,", second: "defensive operations" },
-  { first: "SIEM engineering at", second: "scale" },
-  { first: "Security automation,", second: "engineered for impact" },
-  { first: "Engineering security", second: "solutions" },
-  { first: "Signal over noise,", second: "engineered" },
-  { first: "High-confidence detection,", second: "engineered" },
-  { first: "Security at", second: "engineering speed" },
-  { first: "Threats detected,", second: "systems secured" },
-  { first: "Engineering security", second: "excellence" },
-] as const;
-
 const HIGHLIGHTS = [
   "Azure Sentinel",
   "Wireshark",
@@ -107,23 +84,13 @@ const HIGHLIGHTS = [
 const BRANDS = ["BIT MESRA", "IIT GUWAHATI", "IIT PATNA", "TEACHNOOK", "DRISTI-NGO"] as const;
 
 function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % HEADLINES.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentHeadline = useMemo(() => HEADLINES[currentIndex], [currentIndex]);
-
   return (
-    <section className="relative w-screen min-h-screen flex flex-col items-center justify-between pt-32 pb-20 overflow-hidden bg-black">
-      <h1 className="sr-only">Siddh Samarth – Cybersecurity Portfolio</h1>
-      {/* Exact Unicorn Studio Embed from PD */}
-      <motion.div 
+    <section
+      className="relative w-screen min-h-screen flex flex-col items-center justify-between pt-32 pb-20 overflow-hidden bg-black"
+      aria-labelledby="hero-heading"
+    >
+      {/* Background */}
+      <motion.div
         className="absolute inset-0 z-0 overflow-hidden"
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -134,35 +101,34 @@ function Hero() {
           width="100%"
           height="100%"
           className="absolute inset-0 w-screen h-full border-none opacity-80"
-          title="PD Animation"
+          title="Background animation – cybersecurity visualization"
+          aria-hidden="true"
         />
       </motion.div>
-      {/* Subtle animated threat-map overlay */}
-      <div className="pd-threat-map z-[1]" />
+      <div className="pd-threat-map z-[1]" aria-hidden="true" />
 
-      <div className="w-full px-0 z-10 text-center relative flex-grow flex flex-col justify-center">
+      <header className="w-full px-0 z-10 text-center relative flex-grow flex flex-col justify-center">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="relative mb-10 min-h-[240px] md:min-h-[300px] lg:min-h-[360px] flex items-center justify-center">
-            <AnimatePresence mode="wait">
-              <motion.h1
-                key={currentIndex}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -30, scale: 0.95 }}
-                transition={{ 
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }}
-                className="text-5xl md:text-8xl lg:text-[7.5rem] font-bold tracking-tight pd-text-gradient leading-[1.05] w-full"
-              >
-                {currentHeadline.first} <br className="hidden md:block" />
-                {currentHeadline.second}
-              </motion.h1>
-            </AnimatePresence>
+          <div className="relative mb-6 min-h-[140px] md:min-h-[180px] flex items-center justify-center">
+            <motion.h1
+              id="hero-heading"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight pd-text-gradient leading-[1.05]"
+            >
+              Siddh Samarth
+            </motion.h1>
           </div>
 
-          {/* Spacer to maintain layout */}
-          <div className="mb-16" />
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="text-zinc-400 text-lg md:text-xl lg:text-2xl font-medium mb-10 max-w-2xl mx-auto"
+          >
+            SOC · SIEM · OSINT · Security Automation
+          </motion.p>
 
           {/* Highlights */}
           <motion.div
@@ -176,13 +142,13 @@ function Hero() {
                 key={t}
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.5 + idx * 0.08, 
+                transition={{
+                  duration: 0.6,
+                  delay: 0.5 + idx * 0.08,
                   ease: [0.25, 0.46, 0.45, 0.94],
                   type: "spring",
                   stiffness: 200,
-                  damping: 15
+                  damping: 15,
                 }}
                 whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
@@ -193,50 +159,70 @@ function Hero() {
             ))}
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          {/* CTAs */}
+          <motion.nav
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 1, 
-              delay: 0.6, 
+            transition={{
+              duration: 1,
+              delay: 0.6,
               ease: [0.25, 0.46, 0.45, 0.94],
               type: "spring",
               stiffness: 100,
-              damping: 20
+              damping: 20,
             }}
             className="flex justify-center"
+            aria-label="Primary actions"
           >
             <div className="flex flex-col sm:flex-row gap-5 items-center justify-center">
-              <motion.a 
-                href="#projects" 
-                className="pd-button-white px-12 py-5 text-base font-bold"
+              <motion.span
                 whileHover={{ scale: 1.05, y: -4 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                View Projects
-              </motion.a>
+                <Link
+                  href="#projects"
+                  className="pd-button-white px-12 py-5 text-base font-bold inline-block"
+                >
+                  View Projects
+                </Link>
+              </motion.span>
+              <motion.span
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Link
+                  href="#about"
+                  className="pd-button-white px-12 py-5 text-base font-bold inline-block border border-white/20 bg-transparent hover:bg-white/10"
+                >
+                  About Me
+                </Link>
+              </motion.span>
               <ResumeButton />
             </div>
-          </motion.div>
+          </motion.nav>
         </div>
-      </div>
+      </header>
 
-      {/* Exposure Section - Positioned exactly like PD bottom marquee */}
+      {/* Exposure Section */}
       <div className="w-full z-10 pt-20">
         <div className="w-full px-0 text-center">
           <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
-          <p className="text-zinc-500 text-[11px] font-black mb-10 tracking-[0.4em] uppercase opacity-60">
-            I HAD EXPOSURE FROM:
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 lg:gap-24 opacity-40 hover:opacity-100 transition-opacity duration-700 pb-10">
-            {BRANDS.map((brand) => (
-              <span key={brand} className="text-xl md:text-2xl lg:text-3xl font-black tracking-tighter text-white whitespace-nowrap">
-                {brand}
-              </span>
-            ))}
+            <p className="text-zinc-500 text-[11px] font-black mb-10 tracking-[0.4em] uppercase opacity-60">
+              I HAD EXPOSURE FROM:
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 lg:gap-24 opacity-40 hover:opacity-100 transition-opacity duration-700 pb-10">
+              {BRANDS.map((brand) => (
+                <span
+                  key={brand}
+                  className="text-xl md:text-2xl lg:text-3xl font-black tracking-tighter text-white whitespace-nowrap"
+                >
+                  {brand}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>

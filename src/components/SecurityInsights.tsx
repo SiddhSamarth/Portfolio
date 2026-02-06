@@ -28,7 +28,7 @@ const insights = [
 
 export default function SecurityInsights() {
   return (
-    <section className="py-32 bg-black border-t border-white/5 relative overflow-hidden">
+    <section id="security-insights" className="py-32 bg-black border-t border-white/5 relative overflow-hidden">
       {/* Ambient blue light background */}
       <div className="absolute inset-0 opacity-35 pointer-events-none">
         <div className="pd-section-bg-pattern" />

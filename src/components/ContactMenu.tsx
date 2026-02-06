@@ -86,6 +86,7 @@ function ContactMenu({ className, openOnHover = true }: Props) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={`contact-menu-${id}`}
+        aria-label="Contact and social links – email, GitHub, LinkedIn, Instagram"
         onClick={() => setOpen((v) => !v)}
         className={className}
       >
@@ -116,7 +117,7 @@ function ContactMenu({ className, openOnHover = true }: Props) {
                   role="menuitem"
                   href={href}
                   target={external ? "_blank" : undefined}
-                  rel={external ? "noreferrer" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
                   whileHover={{ scale: 1.05, y: -8 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 2000, damping: 50, mass: 0.3 }}

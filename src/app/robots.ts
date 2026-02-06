@@ -1,11 +1,14 @@
 import { MetadataRoute } from "next";
 
+const BASE =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://siddhsamarth.in";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://siddhsamarth.in/sitemap.xml"
+    sitemap: `${BASE}/sitemap.xml`
   };
 }

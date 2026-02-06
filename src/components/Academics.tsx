@@ -24,7 +24,7 @@ const academics = [
 
 export default function Academics() {
   return (
-    <section className="py-40 bg-black border-t border-white/5 relative overflow-hidden">
+    <section id="academics" className="py-40 bg-black border-t border-white/5 relative overflow-hidden" aria-labelledby="academics-heading">
       {/* Animated background pattern with ambient blue light */}
       <div className="absolute inset-0 opacity-35 pointer-events-none">
         <div className="pd-section-bg-pattern" />
@@ -37,7 +37,7 @@ export default function Academics() {
           transition={{ duration: 0.8 }}
           className="mb-16 text-left"
         >
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4">
+          <h2 id="academics-heading" className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4">
             Academics
           </h2>
           <p className="text-zinc-500 text-lg max-w-3xl">

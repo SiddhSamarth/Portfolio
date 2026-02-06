@@ -1,4 +1,5 @@
-const BASE = "https://siddhsamarth.in";
+const BASE =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://siddhsamarth.in";
 
 const URLS: { loc: string; lastmod: string; changefreq: string; priority: string }[] = [
   {

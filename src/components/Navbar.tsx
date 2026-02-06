@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import ContactMenu from "./ContactMenu";
 
 const navLinks = [
+  { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
@@ -33,12 +35,9 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-10">
           {/* Logo */}
-          <a 
-            href="#" 
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+          <Link
+            href="/"
+            aria-label="Siddh Samarth – Home"
             className="flex items-center gap-3 cursor-pointer group"
           >
             <motion.div className="w-8 h-8 flex items-center justify-center" style={{ rotate: logoRotate }}>
@@ -54,20 +53,20 @@ export default function Navbar() {
               </svg>
             </motion.div>
             <span className="text-xl font-bold tracking-tighter hidden sm:block">Siddh Samarth</span>
-          </a>
+          </Link>
 
           {/* Desktop Nav - Centered */}
-          <div className="hidden md:flex items-center gap-12 absolute left-1/2 -translate-x-1/2">
+          <nav className="hidden md:flex items-center gap-12 absolute left-1/2 -translate-x-1/2" aria-label="Primary">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className="text-[13px] font-bold text-zinc-400 hover:text-white transition-colors tracking-wide"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-          </div>
+          </nav>
 
           {/* Right Action */}
           <div className="hidden md:flex items-center gap-8">
@@ -75,7 +74,13 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            type="button"
+            className="md:hidden text-white"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -86,19 +91,19 @@ export default function Navbar() {
         "absolute top-full left-0 right-0 bg-black border-b border-white/5 overflow-hidden transition-all duration-500 md:hidden",
         isOpen ? "h-screen opacity-100" : "h-0 opacity-0"
       )}>
-        <div className="p-8 space-y-8 flex flex-col items-center">
+        <nav className="p-8 space-y-8 flex flex-col items-center" aria-label="Mobile navigation">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              className="text-2xl font-bold text-zinc-400"
+              className="text-2xl font-bold text-zinc-400 hover:text-white transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
           <ContactMenu className="pd-button-white w-full max-w-xs" openOnHover={false} />
-        </div>
+        </nav>
       </div>
     </nav>
   );
