@@ -230,7 +230,7 @@ export default function Certificates() {
                   <button
                     key={category.name}
                     onClick={() => setActiveTab(category.name)}
-                    className={`px-6 py-2.5 rounded-full border transition-all duration-300 text-[13px] font-bold tracking-tight ${
+                    className={`px-6 py-2.5 rounded-full border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] text-[13px] font-bold tracking-tight ${
                       isActive
                         ? "bg-white text-black border-white"
                         : "bg-black text-white border-white/20 hover:border-white/40"
@@ -248,10 +248,10 @@ export default function Certificates() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full flex flex-col lg:flex-row gap-12"
               >
                 <div className="lg:w-2/5">
@@ -311,7 +311,7 @@ export default function Certificates() {
                         {activeCategory.certificates.map((cert, idx) => (
                           <div 
                             key={idx} 
-                            className="group relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 shadow-lg shadow-black/20"
+                            className="group relative p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-lg shadow-black/20"
                             style={{
                               background: "rgba(255, 255, 255, 0.03)",
                               backdropFilter: "blur(16px)",
@@ -353,7 +353,7 @@ export default function Certificates() {
                                       href={cert.verificationLink}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-300 hover:bg-blue-500/30 hover:border-blue-500/50 transition-all duration-300 text-xs font-medium"
+                                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-300 hover:bg-blue-500/30 hover:border-blue-500/50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] text-xs font-medium"
                                     >
                                       <ExternalLink size={14} />
                                       Verify Certificate
@@ -377,7 +377,7 @@ export default function Certificates() {
                         href={activeCategory.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-xs font-medium"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] text-xs font-medium"
                       >
                         <Folder size={14} />
                         View All in Google Drive

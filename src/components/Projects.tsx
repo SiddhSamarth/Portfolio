@@ -58,33 +58,27 @@ export default function Projects() {
       </div>
       <div className="w-full px-4 sm:px-6 lg:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ 
-            duration: 0.9,
-            ease: [0.25, 0.46, 0.45, 0.94],
-            type: "spring",
-            stiffness: 100,
-            damping: 20
-          }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 text-center"
         >
           <motion.h2 
             className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4"
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
+            transition={{ delay: 0.08, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             Featured Projects
           </motion.h2>
           <motion.p 
             className="text-zinc-500 text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.18, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             Real-world security solutions and research initiatives
           </motion.p>
@@ -93,16 +87,13 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              initial={{ opacity: 0, y: 32, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ 
-                duration: 0.8, 
-                delay: index * 0.15, 
-                ease: [0.25, 0.46, 0.45, 0.94], // anime.js inOutQuad-like
-                type: "spring",
-                stiffness: 100,
-                damping: 15
+                duration: 1, 
+                delay: index * 0.1, 
+                ease: [0.16, 1, 0.3, 1],
               }}
             >
               <TiltCard className="bg-[#09090b] border border-white/5 rounded-[2.5rem] p-10 flex flex-col h-full hover:border-white/10 transition-all duration-500 group">
@@ -121,14 +112,11 @@ export default function Projects() {
                   {project.tags.map((tag, tagIdx) => (
                     <motion.span
                       key={tag}
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.94 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ 
-                        delay: 0.3 + tagIdx * 0.05,
-                        ease: [0.25, 0.46, 0.45, 0.94]
-                      }}
-                      whileHover={{ scale: 1.05, y: -2 }}
+                      transition={{ delay: 0.25 + tagIdx * 0.04, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      whileHover={{ scale: 1.04, y: -2 }}
                       className="px-3 py-1.5 bg-zinc-900/60 text-zinc-400 text-[10px] font-semibold uppercase tracking-wider rounded-lg border border-white/5 hover:border-white/10 transition-all duration-300 cursor-default"
                     >
                       {tag}
@@ -141,21 +129,23 @@ export default function Projects() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <motion.a
                     href={project.link}
                     target="_blank"
-                    whileHover={{ x: 4, scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ x: 3, scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 22 }}
                     className="flex items-center gap-2 text-white text-[13px] font-bold uppercase tracking-widest hover:text-[#3b82f6] transition-colors cursor-pointer"
                   >
                     GITHUB <Github size={16} />
                   </motion.a>
                   <motion.a
                     href="#"
-                    whileHover={{ x: 4, scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ x: 3, scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 22 }}
                     className="flex items-center gap-2 text-white text-[13px] font-bold uppercase tracking-widest hover:text-[#3b82f6] transition-colors cursor-pointer"
                   >
                     REPRO <ExternalLink size={16} />

@@ -65,9 +65,9 @@ function TiltCard({ children, className }: Props) {
       }}
       transition={{ 
         type: "spring", 
-        stiffness: isHovered ? 600 : 90,
+        stiffness: isHovered ? 320 : 65,
         damping: 24,
-        mass: isHovered ? 0.4 : 1.8
+        mass: isHovered ? 0.5 : 1.2
       }}
       className={["pd-tilt pd-neon", className].filter(Boolean).join(" ")}
       style={

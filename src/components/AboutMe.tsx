@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 import { ANIMATION_EASE, SPRING_CONFIG } from "@/lib/animations";
@@ -52,10 +52,10 @@ function AboutMe() {
       </div>
       <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 text-left"
         >
           <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4">
@@ -70,20 +70,20 @@ function AboutMe() {
         <div className="space-y-12">
           {/* Core Expertise - Grouped by Category */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           >
             <h3 className="text-2xl font-bold text-white mb-6">Core Expertise</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {expertiseCategories.map((category, catIdx) => (
                 <motion.div
                   key={category.category}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 + catIdx * 0.1 }}
+                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.2 + catIdx * 0.08 }}
                   className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 shadow-lg shadow-black/20 relative group hover:bg-white/8 hover:border-white/30 hover:shadow-[0_0_30px_rgba(255,255,255,0.2),0_0_60px_rgba(255,255,255,0.15),0_0_90px_rgba(255,255,255,0.1),0_0_120px_rgba(255,255,255,0.05)] hover:-translate-y-0.5"
                 >
                   <h4 className="text-white font-semibold mb-4 text-lg">{category.category}</h4>
@@ -104,20 +104,20 @@ function AboutMe() {
 
           {/* Tools & Technologies - Grouped by Category */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
           >
             <h3 className="text-2xl font-bold text-white mb-6">Tools & Technologies</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {toolCategories.map((category, catIdx) => (
                 <motion.div
                   key={category.category}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 + catIdx * 0.1 }}
+                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.3 + catIdx * 0.08 }}
                   className="p-6 rounded-2xl border border-blue-400/20 bg-blue-500/5 backdrop-blur-md transition-all duration-300 shadow-lg shadow-blue-500/10 relative group hover:bg-blue-500/12 hover:border-blue-400/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.4),0_0_60px_rgba(59,130,246,0.3),0_0_90px_rgba(59,130,246,0.2),0_0_120px_rgba(59,130,246,0.1)] hover:-translate-y-0.5"
                 >
                   <h4 className="text-blue-300 font-semibold mb-4 text-lg">{category.category}</h4>
@@ -138,10 +138,10 @@ function AboutMe() {
 
           {/* Key Strengths */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             className="grid md:grid-cols-3 gap-6"
           >
             {[
@@ -160,15 +160,13 @@ function AboutMe() {
             ].map((strength, idx) => (
               <motion.div
                 key={strength.title}
-                initial={{ opacity: 0, y: 50, x: idx % 2 === 0 ? -20 : 20 }}
+                initial={{ opacity: 0, y: 28, x: idx % 2 === 0 ? -12 : 12 }}
                 whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ 
-                  duration: 0.8, 
-                  delay: 0.5 + idx * 0.15, 
-                  ease: ANIMATION_EASE,
-                  type: "spring",
-                  ...SPRING_CONFIG
+                  duration: 1, 
+                  delay: 0.4 + idx * 0.12, 
+                  ease: [0.16, 1, 0.3, 1],
                 }}
               >
                 <TiltCard className="rounded-[2.5rem] border border-white/5 bg-[#09090b] p-8 hover:border-white/10 transition-all duration-500">

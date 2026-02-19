@@ -101,7 +101,7 @@ function ContactMenu({ className, openOnHover = true }: Props) {
             initial={{ opacity: 0, y: 10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 380, damping: 28 }}
+            transition={{ type: "spring", stiffness: 220, damping: 26 }}
             className="absolute right-0 top-[calc(100%+12px)] w-[340px] rounded-3xl border border-white/10 bg-black/70 backdrop-blur-2xl p-3 shadow-[0_20px_80px_rgba(0,0,0,0.65)]"
           >
             <div className="px-3 pt-2 pb-3">
@@ -118,18 +118,18 @@ function ContactMenu({ className, openOnHover = true }: Props) {
                   href={href}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
-                  whileHover={{ scale: 1.05, y: -8 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 2000, damping: 50, mass: 0.3 }}
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 24 }}
                   className={[
                     "group relative rounded-2xl border border-white/10 bg-[#09090b] p-4",
-                    "transition-all duration-75 hover:border-white/20",
+                    "transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-white/20",
                     "pd-tilt pd-neon",
                   ].join(" ")}
                 >
                   <div
                     className={[
-                      "pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+                      "pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                       "bg-gradient-to-br",
                       accent,
                     ].join(" ")}

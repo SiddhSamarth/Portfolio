@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
       scrolled ? "pd-acrylic py-4" : "bg-transparent py-8"
     )}>
       <div className="w-full px-4 sm:px-8 lg:px-12">
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       <div className={cn(
-        "absolute top-full left-0 right-0 bg-black border-b border-white/5 overflow-hidden transition-all duration-500 md:hidden",
+        "absolute top-full left-0 right-0 bg-black border-b border-white/5 overflow-hidden transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden",
         isOpen ? "h-screen opacity-100" : "h-0 opacity-0"
       )}>
         <nav className="p-8 space-y-8 flex flex-col items-center" aria-label="Mobile navigation">

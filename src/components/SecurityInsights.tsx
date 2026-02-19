@@ -46,8 +46,8 @@ export default function SecurityInsights() {
               key={insight.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <TiltCard
                 className={`rounded-[2.5rem] p-12 flex flex-col h-full border ${

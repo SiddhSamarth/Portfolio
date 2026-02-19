@@ -31,16 +31,17 @@ const ResumeButton = memo(function ResumeButton() {
       aria-label="View Siddh Samarth resume (opens in new tab)"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setMousePosition({ x: 50, y: 50 })}
-      whileHover={{ scale: 1.05, y: -2 }}
+      whileHover={{ scale: 1.04, y: -2 }}
       whileTap={{ scale: 0.98 }}
-      className="group relative px-12 py-5 text-base font-bold rounded-full border border-white/15 text-white bg-black/40 backdrop-blur-md overflow-hidden transition-all duration-300"
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      className="group relative px-12 py-5 text-base font-bold rounded-full border border-white/15 text-white bg-black/40 backdrop-blur-md overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
       style={{
         boxShadow: "0 0 0 1px rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.4)",
       }}
     >
       {/* Neon glow background */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-full"
         style={{
           background: `radial-gradient(400px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(59,130,246,0.25), rgba(168,85,247,0.15), transparent 70%)`,
           filter: "blur(20px)",
@@ -59,13 +60,13 @@ const ResumeButton = memo(function ResumeButton() {
 
       {/* Content */}
       <span className="relative z-10 flex items-center gap-3">
-        <FileText size={20} className="group-hover:rotate-12 transition-transform duration-300" />
+        <FileText size={20} className="group-hover:rotate-12 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
         <span>View Resume</span>
-        <ExternalLink size={16} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+        <ExternalLink size={16} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
       </span>
 
       {/* Border glow on hover */}
-      <div className="absolute inset-0 rounded-full border border-transparent group-hover:border-white/20 transition-all duration-300" />
+      <div className="absolute inset-0 rounded-full border border-transparent group-hover:border-white/20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
     </motion.a>
   );
 });
@@ -92,9 +93,9 @@ function Hero() {
       {/* Background */}
       <motion.div
         className="absolute inset-0 z-0 overflow-hidden"
-        initial={{ scale: 1.1, opacity: 0 }}
+        initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
       >
         <iframe
           src="https://unicorn.studio/embed/Rj77cbewZzmp8emYU8Bm"
@@ -112,9 +113,9 @@ function Hero() {
           <div className="relative mb-6 min-h-[140px] md:min-h-[180px] flex items-center justify-center">
             <motion.h1
               id="hero-heading"
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight pd-text-gradient leading-[1.05]"
             >
               Siddh Samarth
@@ -122,9 +123,9 @@ function Hero() {
           </div>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="text-zinc-400 text-lg md:text-xl lg:text-2xl font-medium mb-10 max-w-2xl mx-auto"
           >
             SOC · SIEM · OSINT · Security Automation
@@ -132,26 +133,23 @@ function Hero() {
 
           {/* Highlights */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap items-center justify-center gap-3 mb-14"
           >
             {HIGHLIGHTS.map((t, idx) => (
               <motion.span
                 key={t}
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                initial={{ opacity: 0, scale: 0.96, y: 14 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.5 + idx * 0.08,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 15,
+                  duration: 0.85,
+                  delay: 0.5 + idx * 0.06,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
-                whileHover={{ scale: 1.08, y: -3 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 className="px-5 py-2.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md text-zinc-300 text-xs font-bold uppercase tracking-[0.15em] hover:border-white/20 hover:bg-black/60 transition-all duration-300 cursor-default"
               >
                 {t}
@@ -161,24 +159,21 @@ function Hero() {
 
           {/* CTAs */}
           <motion.nav
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 1,
-              delay: 0.6,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              type: "spring",
-              stiffness: 100,
-              damping: 20,
+              duration: 1.1,
+              delay: 0.65,
+              ease: [0.16, 1, 0.3, 1],
             }}
             className="flex justify-center"
             aria-label="Primary actions"
           >
             <div className="flex flex-col sm:flex-row gap-5 items-center justify-center">
               <motion.span
-                whileHover={{ scale: 1.05, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                whileHover={{ scale: 1.04, y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 260, damping: 22 }}
               >
                 <Link
                   href="#projects"
@@ -188,9 +183,9 @@ function Hero() {
                 </Link>
               </motion.span>
               <motion.span
-                whileHover={{ scale: 1.05, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                whileHover={{ scale: 1.04, y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 260, damping: 22 }}
               >
                 <Link
                   href="#about"

@@ -31,10 +31,10 @@ export default function Academics() {
       </div>
       <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 text-left"
         >
           <h2 id="academics-heading" className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4">
@@ -49,16 +49,13 @@ export default function Academics() {
           {academics.map((item, idx) => (
             <motion.div
               key={item.institution}
-              initial={{ opacity: 0, y: 50, x: idx % 2 === 0 ? -20 : 20 }}
+              initial={{ opacity: 0, y: 28, x: idx % 2 === 0 ? -12 : 12 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ 
-                duration: 0.8, 
-                delay: idx * 0.15, 
-                ease: [0.25, 0.46, 0.45, 0.94],
-                type: "spring",
-                stiffness: 100,
-                damping: 18
+                duration: 1, 
+                delay: idx * 0.1, 
+                ease: [0.16, 1, 0.3, 1],
               }}
             >
               <TiltCard className="rounded-[2.5rem] border border-white/5 bg-[#09090b] p-8 md:p-10 flex flex-col md:flex-row md:items-start md:justify-between gap-6 hover:border-white/10 transition-all duration-500">

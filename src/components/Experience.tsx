@@ -45,18 +45,19 @@ export default function Experience() {
           <div className="lg:col-span-5">
             <div className="sticky top-32">
               <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="text-5xl md:text-[4rem] font-bold mb-8 tracking-tighter leading-[1.1] text-white"
               >
                 Internship & field experience
               </motion.h2>
               <motion.p 
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0.1, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 className="text-zinc-500 text-xl leading-relaxed mb-12 font-medium max-w-md"
               >
                 Places where I turned theory into practice—from research internships to real-world documentation and coordination work.
@@ -71,16 +72,13 @@ export default function Experience() {
             {items.map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 40, x: 20 }}
+                initial={{ opacity: 0, y: 28, x: 12 }}
                 whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-80px" }}
                 transition={{ 
-                  duration: 0.7, 
-                  delay: index * 0.15,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 18
+                  duration: 1, 
+                  delay: index * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
               >
                 <TiltCard className="rounded-[2rem] border border-white/5 bg-[#09090b] p-12 transition-all duration-300">

@@ -36,33 +36,27 @@ export default function Skills() {
       </div>
       <div className="w-full px-4 sm:px-6 lg:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ 
-            duration: 0.9,
-            ease: [0.25, 0.46, 0.45, 0.94],
-            type: "spring",
-            stiffness: 100,
-            damping: 20
-          }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 text-center"
         >
           <motion.h2 
             className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4"
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
+            transition={{ delay: 0.08, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             Technical Skills
           </motion.h2>
           <motion.p 
             className="text-zinc-500 text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.18, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             Technologies and tools I work with daily
           </motion.p>
@@ -71,16 +65,13 @@ export default function Skills() {
           {skillGrid.map((skill, index) => (
             <motion.div
               key={skill.title}
-              initial={{ opacity: 0, y: 40, rotateX: -5 }}
+              initial={{ opacity: 0, y: 28, rotateX: -4 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ 
-                duration: 0.7, 
-                delay: index * 0.12,
-                ease: [0.25, 0.46, 0.45, 0.94],
-                type: "spring",
-                stiffness: 120,
-                damping: 18
+                duration: 1, 
+                delay: index * 0.1,
+                ease: [0.16, 1, 0.3, 1],
               }}
             >
               <TiltCard className="pd-card p-10 hover:border-white/10 group">
