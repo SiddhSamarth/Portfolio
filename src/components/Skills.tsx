@@ -7,22 +7,57 @@ import TiltCard from "./TiltCard";
 const skillGrid = [
   {
     title: "Programming Languages",
-    description: "Python, Bash, SQL, PowerShell",
+    description: "Python · Bash · SQL · PowerShell",
     icon: Lock,
   },
   {
     title: "Libraries & Data",
-    description: "TensorFlow (ML anomaly detection), Pandas, NumPy, Regex/re, Socket, PyAutoGUI, Scapy",
+    description: "TensorFlow · Pandas · NumPy · Scapy · Socket · Regex/re",
     icon: ShieldCheck,
   },
   {
     title: "Security Domains",
-    description: "Network Analysis, Malware Analysis, OS Hardening, Log Analysis",
+    description: "Network Analysis · Malware Analysis · OS Hardening · Log Analysis · Threat Hunting · Incident Response",
     icon: Cpu,
   },
   {
-    title: "Tools & Technologies",
-    description: "Azure Sentinel, Splunk, Wazuh, Nmap, Wireshark, Zeek, Suricata, Nessus, Burp Suite, Nikto, Hashcat, Aircrack-ng, TheHive, MISP, Shodan, Maltego, theHarvester, VirusTotal, AnyRun, Hybrid Analysis, CrowdStrike Falcon (studied), Microsoft Defender for Endpoint, AndroGuard, n8n",
+    title: "SIEM & Security Platforms",
+    description: "Azure Sentinel · Splunk · Wazuh · IBM QRadar (familiar)",
+    icon: Terminal,
+  },
+  {
+    title: "Endpoint & EDR",
+    description: "Microsoft Defender for Endpoint · CrowdStrike Falcon (studied) · VirusTotal · AnyRun · Hybrid Analysis",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Network Analysis Tools",
+    description: "Wireshark · Nmap · Zeek · Suricata · Snort · Packet Analysis",
+    icon: Cpu,
+  },
+  {
+    title: "Security Testing",
+    description: "Nessus · Burp Suite · Kali Linux · Nikto · Hashcat · Aircrack-ng",
+    icon: Lock,
+  },
+  {
+    title: "OSINT Tools",
+    description: "Shodan · Maltego · theHarvester · Recon-ng",
+    icon: Terminal,
+  },
+  {
+    title: "Threat Intelligence",
+    description: "MISP · OpenCTI · VirusTotal Intelligence",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Incident Response & Ticketing",
+    description: "TheHive · Jira · ServiceNow (familiar)",
+    icon: Cpu,
+  },
+  {
+    title: "Development & Automation",
+    description: "Python · Bash · SQL · PowerShell · n8n",
     icon: Terminal,
   },
   {

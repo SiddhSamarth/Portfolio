@@ -420,4 +420,112 @@ iframe {
   max-width: 100%;
   height: auto;
 }
+/* ============================================================
+   RESPONSIVE DESIGN SYSTEM — Fluid Typography & Spacing
+   ============================================================ */
 
+/* Fluid typography — scales smoothly across all breakpoints */
+h1 { font-size: clamp(1.8rem, 5vw, 4rem); line-height: 1.1; }
+h2 { font-size: clamp(1.4rem, 3vw, 2.25rem); line-height: 1.15; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.25; }
+h4 { font-size: clamp(0.9rem, 1.5vw, 1.1rem); line-height: 1.35; }
+
+/* Base font size scales down gracefully on smaller screens */
+@media (max-width: 1024px) { html { font-size: 15px; } }
+@media (max-width: 767px)  { html { font-size: 14px; } }
+
+/* ============================================================
+   TOUCH & INTERACTION IMPROVEMENTS
+   ============================================================ */
+
+/* Remove grey flash on iOS tap */
+a, button, [role="button"], [role="link"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove 300ms tap delay */
+button, a, [role="button"], [role="link"], input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Min tap target on mobile */
+@media (max-width: 767px) {
+  a, button { min-height: 48px; }
+  nav a, footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ============================================================
+   FLUID SPACING UTILITIES
+   ============================================================ */
+
+.pd-section-pad {
+  padding-top: clamp(40px, 8vw, 100px);
+  padding-bottom: clamp(40px, 8vw, 100px);
+}
+.pd-card-pad    { padding: clamp(16px, 3vw, 32px); }
+.pd-gap         { gap: clamp(16px, 2.5vw, 28px); }
+
+/* ============================================================
+   MOBILE LAYOUT FIXES
+   ============================================================ */
+
+@media (max-width: 767px) {
+  /* Prevent grid overflow on mobile */
+  [class*="grid"] { min-width: 0; }
+
+  /* Tags/badges: always wrap, never overflow */
+  .flex.flex-wrap.gap-2,
+  .flex.flex-wrap.gap-3 {
+    max-width: 100%;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+
+  /* Breathing room above footer */
+  footer { padding-bottom: clamp(32px, 6vw, 80px); }
+
+  /* Stack all grid columns on mobile */
+  [class*="grid-cols"] { grid-template-columns: 1fr !important; }
+
+  /* Allow 2-col when explicitly needed */
+  .mobile-2col { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Tablet — 2-col grids */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-2col { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ============================================================
+   FOOTER MOBILE STACKING
+   ============================================================ */
+
+@media (max-width: 767px) {
+  footer .md\:col-span-5,
+  footer .md\:col-span-7 { grid-column: span 1; }
+
+  footer [class*="sm\:grid-cols-2"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================
+   RESUME PAGE IFRAME — Responsive height
+   ============================================================ */
+
+.resume-iframe { height: 90vh; width: 100%; }
+@media (max-width: 1023px) { .resume-iframe { height: 80vh; } }
+@media (max-width: 767px)  { .resume-iframe { height: 75vh; min-height: 400px; } }
+
+/* ============================================================
+   iOS SAFE AREA SUPPORT
+   ============================================================ */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  footer { padding-bottom: calc(env(safe-area-inset-bottom) + 20px); }
+  nav    { padding-top: env(safe-area-inset-top); }
+}

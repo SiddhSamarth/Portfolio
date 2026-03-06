@@ -70,13 +70,8 @@ export default function ResumePage() {
                     <div className="w-full rounded-2xl border border-white/8 overflow-hidden">
                         <iframe
                             src={DRIVE_PREVIEW}
-                            className="w-full block"
-                            style={{
-                                height: "90vh",
-                                minHeight: "500px",
-                                border: "none",
-                                background: "transparent",
-                            }}
+                            className="w-full block resume-iframe"
+                            style={{ border: "none", background: "transparent" }}
                             title="Siddh Samarth – Cybersecurity Analyst Resume"
                             allow="autoplay"
                         />

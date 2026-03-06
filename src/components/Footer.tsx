@@ -114,9 +114,9 @@ export default function Footer() {
             href="https://github.com/antcybersec"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-600 text-[11px] font-medium hover:text-zinc-400 transition-colors"
+            className="text-zinc-600 text-[11px] font-medium hover:text-zinc-400 transition-colors opacity-50 hover:opacity-100"
           >
-            Contributor: Anant Kumar
+            Portfolio of Siddh Samarth · Built with help from Anant Kumar
           </a>
         </div>
       </div>

@@ -255,7 +255,7 @@ function AboutMe() {
                 <span className="w-8 h-px bg-white/20"></span>
                 Core Expertise
               </h3>
-              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 border-l border-white/5 pl-4 sm:pl-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 border-l border-white/5 pl-4 sm:pl-6">
                 {expertiseCategories.map((cat, idx) => (
                   <div key={idx} className="mb-2">
                     <h4 className="text-white font-medium mb-3 text-sm sm:text-base">{cat.category}</h4>
@@ -284,7 +284,7 @@ function AboutMe() {
                 <span className="w-8 h-px bg-white/20"></span>
                 Tools & Technologies
               </h3>
-              <div className="grid sm:grid-cols-2 gap-6 border-l border-white/5 pl-4 sm:pl-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-l border-white/5 pl-4 sm:pl-6">
                 {toolCategories.map((cat, idx) => (
                   <div key={idx} className="mb-2">
                     <h4 className="text-zinc-200 font-medium mb-3 text-sm sm:text-base">{cat.category}</h4>
@@ -302,7 +302,7 @@ function AboutMe() {
           </div>
 
           {/* Key Strengths */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-8">
             {[
               {
                 title: "Analytical",
