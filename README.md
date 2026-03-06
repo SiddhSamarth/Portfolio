@@ -109,7 +109,7 @@ This project is private and proprietary.
 
 **Siddh Samarth**
 - GitHub: [@SiddhSamarth](https://github.com/SiddhSamarth)
-- LinkedIn: [samarthsiddh](https://www.linkedin.com/in/samarthsiddh/)
+- LinkedIn: [samarthsiddh](https://www.linkedin.com/in/siddhsamarth/)
 - Email: siddhsamarthsp@gmail.com
 
 ## 🙏 Acknowledgments
