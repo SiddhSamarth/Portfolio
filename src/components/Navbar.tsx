@@ -12,6 +12,8 @@ const navLinks = [
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Writeups", href: "/writeups" },
+  { name: "Resume", href: "/resume" },
 ];
 
 export default function Navbar() {
@@ -32,8 +34,8 @@ export default function Navbar() {
       "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
       scrolled ? "pd-acrylic py-4" : "bg-transparent py-8"
     )}>
-      <div className="w-full px-4 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-10">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-10 sm:h-12">
           {/* Logo */}
           <Link
             href="/"
@@ -52,7 +54,7 @@ export default function Navbar() {
                 <path d="M16 36c2 8 10 12 18 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
               </svg>
             </motion.div>
-            <span className="text-xl font-bold tracking-tighter hidden sm:block">Siddh Samarth</span>
+            <span className="text-lg sm:text-xl font-bold tracking-tighter hidden xs:block">Siddh Samarth</span>
           </Link>
 
           {/* Desktop Nav - Centered */}

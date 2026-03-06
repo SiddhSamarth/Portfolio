@@ -24,14 +24,24 @@
   }
 
   .pd-button-white {
-    @apply px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-zinc-200 transition-all text-sm;
+    @apply px-6 sm:px-8 py-2.5 sm:py-3 bg-white text-black font-bold rounded-full hover:bg-zinc-200 transition-all text-xs sm:text-sm;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    min-height: 44px; /* Touch target size for mobile */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .pd-button-white:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .pd-button-white {
+      width: 100%;
+    }
   }
 
   .pd-text-gradient {
@@ -75,7 +85,19 @@
 
   /* Better section spacing */
   section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 60px;
+  }
+
+  @media (min-width: 640px) {
+    section {
+      scroll-margin-top: 70px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    section {
+      scroll-margin-top: 80px;
+    }
   }
 
   /* Anime.js-inspired smooth animations */
@@ -349,5 +371,53 @@
 ::-webkit-scrollbar-thumb {
   background: #27272a;
   border-radius: 10px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Optimize font rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Improve iframe responsiveness */
+iframe {
+  max-width: 100%;
+  height: auto;
 }
 

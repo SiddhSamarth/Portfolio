@@ -8,6 +8,18 @@ const URLS: { loc: string; lastmod: string; changefreq: string; priority: string
     changefreq: "monthly",
     priority: "1",
   },
+  {
+    loc: `${BASE}/writeups`,
+    lastmod: new Date().toISOString(),
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    loc: `${BASE}/resume`,
+    lastmod: new Date().toISOString(),
+    changefreq: "monthly",
+    priority: "0.7",
+  },
 ];
 
 function buildXml(): string {

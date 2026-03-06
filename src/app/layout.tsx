@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -8,19 +9,28 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://siddhsamarth.in";
 
 export const metadata: Metadata = {
-  title: "Siddh Samarth – Cybersecurity Portfolio",
+  title: "Siddh Samarth | Cybersecurity Analyst – SOC, SIEM & Threat Detection",
   description:
-    "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. Portfolio showcasing threat detection, SIEM, incident response, and security research. IIT Guwahati. View projects and resume.",
+    "Cybersecurity Analyst specializing in SOC operations, SIEM engineering with Azure Sentinel, threat detection, and incident response. BIT Mesra CSE graduate with hands-on project experience in KQL, Wireshark, and Python automation.",
   keywords: [
+    "Cybersecurity Analyst",
+    "SOC Analyst India",
+    "SIEM Engineer Azure Sentinel",
+    "Threat Detection Engineer",
+    "KQL Detection Engineering",
+    "Incident Response Analyst",
+    "Network Forensics",
+    "OSINT Security",
+    "Python Security Automation",
+    "Penetration Testing Portfolio",
+    "BIT Mesra Cybersecurity",
     "Siddh Samarth",
-    "Cybersecurity",
-    "SOC Analyst",
-    "Threat Detection",
-    "SIEM",
-    "Incident Response",
-    "IIT Guwahati",
-    "Security Operations",
-    "Cybersecurity Portfolio",
+    "SOC L1 Analyst",
+    "Security Automation",
+    "Azure Sentinel",
+    "Wireshark",
+    "CEH",
+    "Cybersecurity Portfolio India",
   ],
   icons: {
     icon: "/icon.svg",
@@ -34,19 +44,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_URL,
-    title: "Siddh Samarth – Cybersecurity Portfolio",
+    title: "Siddh Samarth | Cybersecurity Analyst – SOC, SIEM & Threat Detection",
     description:
-      "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. Portfolio showcasing threat detection, SIEM, incident response, and security research. IIT Guwahati.",
+      "Cybersecurity Analyst specializing in SOC operations, Azure Sentinel SIEM engineering, threat detection, and incident response. Available for security roles in India.",
     siteName: "Siddh Samarth",
     images: [
-      { url: `${SITE_URL}/icon.svg`, width: 512, height: 512, alt: "Siddh Samarth" },
+      {
+        url: `${SITE_URL}/og-preview.png`,
+        width: 1200,
+        height: 630,
+        alt: "Siddh Samarth – Cybersecurity Analyst",
+      },
     ],
   },
   twitter: {
-    card: "summary",
-    title: "Siddh Samarth – Cybersecurity Portfolio",
+    card: "summary_large_image",
+    title: "Siddh Samarth | Cybersecurity Analyst",
     description:
-      "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. IIT Guwahati. Threat detection, SIEM, incident response.",
+      "SOC Analyst | Azure Sentinel SIEM | Threat Detection | Incident Response | BIT Mesra CSE",
+    images: [`${SITE_URL}/og-preview.png`],
   },
   verification: {
     google: "0eface33-afbc-4011-ab54-de7d8276026f",
@@ -54,6 +70,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: SITE_URL,
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  themeColor: "#000000",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
   },
 };
 
@@ -64,7 +91,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        {/* Preconnect to external badge hosts for faster load */}
+        <link rel="preconnect" href="https://tryhackme.com" />
+        <link rel="preconnect" href="https://platform.linkedin.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://media.licdn.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://tryhackme.com" />
+        <link rel="dns-prefetch" href="https://platform.linkedin.com" />
+      </head>
+      <body className={inter.className}>
+        {children}
+        <Script src="https://platform.linkedin.com/badges/js/profile.js" strategy="lazyOnload" />
+      </body>
     </html>
   );
 }

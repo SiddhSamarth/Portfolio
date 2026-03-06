@@ -1,57 +1,72 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+// Above-fold: static imports for instant LCP
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Academics from "@/components/Academics";
 import AboutMe from "@/components/AboutMe";
-import SecurityInsights from "@/components/SecurityInsights";
-import Certificates from "@/components/Certificates";
-import SecurityPrinciples from "@/components/SecurityPrinciples";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import Footer from "@/components/Footer";
+
+// Below-fold: dynamic imports to minimize initial JS payload
+const Academics = dynamic(() => import("@/components/Academics"), { ssr: true });
+const SecurityInsights = dynamic(() => import("@/components/SecurityInsights"), { ssr: true });
+const Certificates = dynamic(() => import("@/components/Certificates"), { ssr: true });
+const SecurityPrinciples = dynamic(() => import("@/components/SecurityPrinciples"), { ssr: true });
+const Experience = dynamic(() => import("@/components/Experience"), { ssr: true });
+const Projects = dynamic(() => import("@/components/Projects"), { ssr: true });
+const Skills = dynamic(() => import("@/components/Skills"), { ssr: true });
+const Contact = dynamic(() => import("@/components/Contact"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://siddhsamarth.in";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Siddh Samarth – Cybersecurity Portfolio",
+    title: "Siddh Samarth | Cybersecurity Analyst – SOC, SIEM & Threat Detection",
     description:
-      "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. Portfolio showcasing threat detection, SIEM, incident response, and security research. IIT Guwahati. View projects and resume.",
+      "Cybersecurity Analyst specializing in SOC operations, SIEM engineering with Azure Sentinel, threat detection, and incident response. BIT Mesra CSE graduate with hands-on project experience in KQL, Wireshark, and Python automation.",
     keywords: [
+      "Cybersecurity Analyst",
+      "SOC Analyst India",
+      "SIEM Engineer Azure Sentinel",
+      "Threat Detection Engineer",
+      "KQL Detection Engineering",
+      "Incident Response Analyst",
+      "Network Forensics",
+      "OSINT Security",
+      "Python Security Automation",
+      "Penetration Testing Portfolio",
+      "BIT Mesra Cybersecurity",
       "Siddh Samarth",
-      "Cybersecurity",
-      "SOC Analyst",
-      "Threat Detection",
-      "SIEM",
-      "Incident Response",
-      "IIT Guwahati",
-      "Security Operations",
-      "Cybersecurity Portfolio",
+      "SOC L1 Analyst",
+      "Security Automation",
+      "Azure Sentinel",
+      "Wireshark",
+      "CEH",
+      "Cybersecurity Portfolio India",
     ],
     alternates: { canonical: SITE_URL },
     openGraph: {
       type: "website",
       url: SITE_URL,
-      title: "Siddh Samarth – Cybersecurity Portfolio",
+      title: "Siddh Samarth | Cybersecurity Analyst – SOC, SIEM & Threat Detection",
       description:
-        "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. Portfolio showcasing threat detection, SIEM, incident response, and security research. IIT Guwahati.",
+        "Cybersecurity Analyst specializing in SOC operations, Azure Sentinel SIEM engineering, threat detection, and incident response. Available for security roles in India.",
       siteName: "Siddh Samarth",
       images: [
         {
-          url: `${SITE_URL}/icon.svg`,
-          width: 512,
-          height: 512,
-          alt: "Siddh Samarth",
+          url: `${SITE_URL}/og-preview.png`,
+          width: 1200,
+          height: 630,
+          alt: "Siddh Samarth – Cybersecurity Analyst",
         },
       ],
     },
     twitter: {
-      card: "summary",
-      title: "Siddh Samarth – Cybersecurity Portfolio",
+      card: "summary_large_image",
+      title: "Siddh Samarth | Cybersecurity Analyst",
       description:
-        "Siddh Samarth – Cybersecurity Trainee & SOC Analyst. IIT Guwahati. Threat detection, SIEM, incident response.",
+        "SOC Analyst | Azure Sentinel SIEM | Threat Detection | Incident Response | BIT Mesra CSE",
+      images: [`${SITE_URL}/og-preview.png`],
     },
     robots: { index: true, follow: true },
   };
@@ -62,11 +77,30 @@ const PERSON_JSON_LD = {
   "@type": "Person",
   name: "Siddh Samarth",
   url: SITE_URL,
-  jobTitle: "Cybersecurity Trainee / SOC Analyst",
-  affiliation: { "@type": "Organization", name: "IIT Guwahati" },
+  jobTitle: "Cybersecurity Analyst",
+  description:
+    "Cybersecurity Analyst specializing in SOC operations, SIEM engineering, threat detection, and incident response.",
+  knowsAbout: [
+    "SOC Operations",
+    "SIEM",
+    "Azure Sentinel",
+    "Threat Detection",
+    "Incident Response",
+    "KQL",
+    "Wireshark",
+    "Nmap",
+    "Penetration Testing",
+    "OSINT",
+    "Python Automation",
+    "Bash Scripting",
+  ],
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "Birla Institute of Technology, Mesra" },
+    { "@type": "CollegeOrUniversity", name: "IIT Guwahati" },
+  ],
   sameAs: [
-    "https://www.linkedin.com/in/samarthsiddh/",
     "https://github.com/SiddhSamarth",
+    "https://www.linkedin.com/in/siddhsamarth",
     SITE_URL,
   ],
 };
@@ -148,7 +182,15 @@ const FAQ_JSON_LD = {
       name: "What does Siddh Samarth do?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Siddh Samarth is a Cybersecurity Trainee and SOC Analyst specializing in threat detection, SIEM operations, incident response, and security research. He has training from IIT Guwahati and experience in Azure Sentinel, KQL, and defensive security operations.",
+        text: "Siddh Samarth is a Cybersecurity Analyst and BIT Mesra Computer Science graduate specializing in SOC operations, Azure Sentinel SIEM engineering, KQL-based threat detection, incident response, and Python-driven security automation. He is actively seeking SOC Analyst, Threat Detection Engineer, and Security Operations roles in India.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are Siddh Samarth's key cybersecurity skills?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Siddh Samarth specializes in Azure Sentinel SIEM, KQL detection engineering, network forensics using Wireshark and Nmap, OSINT for threat intelligence, penetration testing, and Python and Bash scripting for security automation.",
       },
     },
   ],
@@ -180,16 +222,7 @@ export default function Home() {
         <Hero />
         {/* Transition background element */}
         <div
-          className="relative w-full h-32 -mt-16 overflow-hidden pointer-events-none"
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
-          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
-        </div>
-        <Academics />
-        {/* Transition between sections */}
-        <div
-          className="relative w-full h-32 -mt-16 -mb-16 overflow-hidden pointer-events-none"
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 overflow-hidden pointer-events-none"
           aria-hidden="true"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
@@ -198,34 +231,7 @@ export default function Home() {
         <AboutMe />
         {/* Transition between sections */}
         <div
-          className="relative w-full h-32 -mt-16 -mb-16 overflow-hidden pointer-events-none"
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
-          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
-        </div>
-        <SecurityInsights />
-        {/* Transition between sections */}
-        <div
-          className="relative w-full h-32 -mt-16 -mb-16 overflow-hidden pointer-events-none"
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
-          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
-        </div>
-        <Certificates />
-        {/* Transition between sections */}
-        <div
-          className="relative w-full h-32 -mt-16 -mb-16 overflow-hidden pointer-events-none"
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
-          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
-        </div>
-        <SecurityPrinciples />
-        {/* Transition between sections */}
-        <div
-          className="relative w-full h-32 -mt-16 -mb-16 overflow-hidden pointer-events-none"
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
           aria-hidden="true"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
@@ -234,7 +240,7 @@ export default function Home() {
         <Experience />
         {/* Transition between sections */}
         <div
-          className="relative w-full h-32 -mt-16 -mb-16 overflow-hidden pointer-events-none"
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
           aria-hidden="true"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
@@ -243,13 +249,58 @@ export default function Home() {
         <Projects />
         {/* Transition between sections */}
         <div
-          className="relative w-full h-32 -mt-16 -mb-16 overflow-hidden pointer-events-none"
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
           aria-hidden="true"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
           <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
         </div>
         <Skills />
+        {/* Transition between sections */}
+        <div
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
+        </div>
+        <Academics />
+        {/* Transition between sections */}
+        <div
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
+        </div>
+        <Certificates />
+        {/* Transition between sections */}
+        <div
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
+        </div>
+        <SecurityInsights />
+        {/* Transition between sections */}
+        <div
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
+        </div>
+        <SecurityPrinciples />
+        {/* Transition before contact */}
+        <div
+          className="relative w-full h-16 sm:h-24 md:h-32 -mt-8 sm:-mt-12 md:-mt-16 -mb-8 sm:-mb-12 md:-mb-16 overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+          <div className="absolute inset-0 pd-section-bg-pattern opacity-25" />
+        </div>
+        <Contact />
         {/* Transition before footer */}
         <div
           className="relative w-full h-32 -mt-16 overflow-hidden pointer-events-none"

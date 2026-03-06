@@ -7,65 +7,66 @@ import TiltCard from "./TiltCard";
 const projects = [
   {
     title: "Solorigate Incident Response",
-    subtitle: "AZURE SENTINEL SIEM",
+    subtitle: "Azure Sentinel SIEM · KQL Detection Engineering · Threat Hunting",
     description: "Engineered end-to-end incident detection workflow. Utilized ASIM and KQL to normalize multi-source telemetry and streamline forensic handover.",
     link: "https://github.com/SiddhSamarth/SIEM-Investigation",
     tags: ["AZURE SENTINEL", "KQL", "ASIM", "THREAT HUNTING"],
   },
   {
     title: "Global Threat Visualization",
-    subtitle: "HONEYPOT & AZURE SENTINEL",
+    subtitle: "Honeypot Deployment · Real-World Attack Data · Azure Sentinel Dashboard",
     description: "Designed and deployed a honeypot to capture real-world attack data. Visualized 20,000+ malicious logon attempts on a world map.",
     link: "https://github.com/SiddhSamarth/SIEM-Honeypot",
     tags: ["AZURE SENTINEL", "HONEYPOT", "KQL", "VISUALIZATION"],
   },
   {
     title: "Zero Trust Architecture",
-    subtitle: "ELK CONSULTING CASE STUDY",
+    subtitle: "ELK Stack · Network Security Design · Crypto Exchange Case Study",
     description: "Developed a consulting-level case study for a crypto exchange's network perimeter. Recommended and designed a Zero Trust model.",
     link: "https://github.com/SiddhSamarth/siem-zero-trust-deployment",
     tags: ["ZERO TRUST", "ELK STACK", "NETWORK DESIGN", "CONSULTING"],
   },
   {
     title: "Threat Intelligence Integration",
-    subtitle: "SOC L1 ANALYST FRAMEWORK",
+    subtitle: "SOC L1 Framework · Python Automation · Threat Analysis Workflows",
     description: "Demonstrated comprehensive Threat Intelligence Integration for SOC L1 Analysts. Built frameworks for threat detection, analysis, and response workflows.",
     link: "https://github.com/SiddhSamarth/Threat-Intelligence-SOC-L1",
     tags: ["THREAT INTELLIGENCE", "SOC OPERATIONS", "PYTHON", "FRAMEWORK"],
   },
   {
     title: "Security Assessment via SDLC",
-    subtitle: "DEVSECOPS METHODOLOGY",
+    subtitle: "DevSecOps · CI/CD Security · Vulnerability Scanning Automation",
     description: "Implemented security assessment practices integrated throughout the Software Development Lifecycle. Automated security checks and vulnerability scanning in CI/CD pipelines.",
     link: "https://github.com/SiddhSamarth/Security-Assessment-via-SDLC",
     tags: ["DEVSECOPS", "SDLC", "SECURITY ASSESSMENT", "AUTOMATION"],
   },
   {
     title: "Incident Response Framework",
-    subtitle: "CYBERSECURITY OPERATIONS",
+    subtitle: "IR Playbooks · Digital Forensics · Containment & Recovery",
     description: "Developed comprehensive incident response procedures and playbooks. Designed workflows for detection, containment, eradication, and recovery phases.",
     link: "https://github.com/SiddhSamarth/Incident-Response",
     tags: ["INCIDENT RESPONSE", "FORENSICS", "PLAYBOOKS", "OPERATIONS"],
   },
 ];
 
+
 export default function Projects() {
   return (
-    <section id="projects" className="py-40 bg-black border-t border-white/5 relative overflow-hidden">
+    <section id="projects" className="py-20 sm:py-28 md:py-32 lg:py-40 bg-black border-t border-white/5 relative overflow-hidden">
       {/* Ambient blue light background */}
       <div className="absolute inset-0 opacity-35 pointer-events-none">
         <div className="pd-section-bg-pattern" />
       </div>
-      <div className="w-full px-4 sm:px-6 lg:px-10 relative z-10">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 text-center"
+          className="mb-12 sm:mb-14 md:mb-16 text-center"
         >
-          <motion.h2 
-            className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4"
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3 sm:mb-4"
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -73,8 +74,8 @@ export default function Projects() {
           >
             Featured Projects
           </motion.h2>
-          <motion.p 
-            className="text-zinc-500 text-lg max-w-2xl mx-auto"
+          <motion.p
+            className="text-zinc-500 text-base sm:text-lg max-w-2xl mx-auto px-4"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -83,32 +84,32 @@ export default function Projects() {
             Real-world security solutions and research initiatives
           </motion.p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-7 lg:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 32, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ 
-                duration: 1, 
-                delay: index * 0.1, 
+              transition={{
+                duration: 1,
+                delay: index * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <TiltCard className="bg-[#09090b] border border-white/5 rounded-[2.5rem] p-10 flex flex-col h-full hover:border-white/10 transition-all duration-500 group">
-                <h3 className="text-white text-2xl font-bold mb-2 tracking-tighter group-hover:text-white transition-colors">
+              <TiltCard className="bg-[#09090b] border border-white/5 rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-10 flex flex-col h-full hover:border-white/10 transition-all duration-500 group">
+                <h3 className="text-white text-xl sm:text-2xl font-bold mb-2 tracking-tighter group-hover:text-white transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-[#3b82f6] text-[12px] mb-8 font-bold uppercase tracking-widest">
+                <p className="text-[#3b82f6] text-[10px] sm:text-[11px] md:text-[12px] mb-6 sm:mb-7 md:mb-8 font-bold uppercase tracking-widest">
                   {project.subtitle}
                 </p>
 
-                <p className="text-zinc-400 text-[16px] leading-relaxed mb-10 font-normal flex-grow">
+                <p className="text-zinc-400 text-sm sm:text-[15px] md:text-[16px] leading-relaxed mb-8 sm:mb-9 md:mb-10 font-normal flex-grow">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-7 md:mb-8 mt-auto">
                   {project.tags.map((tag, tagIdx) => (
                     <motion.span
                       key={tag}
@@ -117,15 +118,15 @@ export default function Projects() {
                       viewport={{ once: true }}
                       transition={{ delay: 0.25 + tagIdx * 0.04, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       whileHover={{ scale: 1.04, y: -2 }}
-                      className="px-3 py-1.5 bg-zinc-900/60 text-zinc-400 text-[10px] font-semibold uppercase tracking-wider rounded-lg border border-white/5 hover:border-white/10 transition-all duration-300 cursor-default"
+                      className="px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 bg-zinc-900/60 text-zinc-400 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider rounded-md sm:rounded-lg border border-white/5 hover:border-white/10 transition-all duration-300 cursor-default"
                     >
                       {tag}
                     </motion.span>
                   ))}
                 </div>
 
-                <motion.div 
-                  className="flex items-center gap-8 pt-8 border-t border-white/5"
+                <motion.div
+                  className="flex items-center gap-4 sm:gap-6 md:gap-8 pt-6 sm:pt-7 md:pt-8 border-t border-white/5"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -134,21 +135,13 @@ export default function Projects() {
                   <motion.a
                     href={project.link}
                     target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ x: 3, scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                    className="flex items-center gap-2 text-white text-[13px] font-bold uppercase tracking-widest hover:text-[#3b82f6] transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 sm:gap-2 text-white text-[11px] sm:text-[12px] md:text-[13px] font-bold uppercase tracking-widest hover:text-[#3b82f6] transition-colors cursor-pointer"
                   >
-                    GITHUB <Github size={16} />
-                  </motion.a>
-                  <motion.a
-                    href="#"
-                    whileHover={{ x: 3, scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                    className="flex items-center gap-2 text-white text-[13px] font-bold uppercase tracking-widest hover:text-[#3b82f6] transition-colors cursor-pointer"
-                  >
-                    REPRO <ExternalLink size={16} />
+                    VIEW ON GITHUB <Github size={14} className="sm:w-4 sm:h-4 md:w-4 md:h-4" />
                   </motion.a>
                 </motion.div>
               </TiltCard>
