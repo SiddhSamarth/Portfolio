@@ -139,7 +139,6 @@ function AboutMe() {
               alt="Siddh Samarth – Cybersecurity Analyst"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              quality={100}
               priority
               className="object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-105"
             />
@@ -169,38 +168,37 @@ function AboutMe() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="md:col-span-3 lg:col-span-5 border border-emerald-500/20 rounded-[2rem] bg-[#09090b]/80 p-6 sm:p-8 backdrop-blur-xl relative overflow-hidden group hover:border-emerald-500/40 shadow-lg hover:shadow-emerald-500/10 transition-all duration-500 flex flex-col justify-center"
+            className="md:col-span-3 lg:col-span-5 relative rounded-[2rem] border border-emerald-500/25 bg-black/80 px-4 sm:px-5 md:px-6 py-5 sm:py-6 backdrop-blur-xl overflow-hidden group hover:border-emerald-400/60 hover:shadow-[0_0_40px_rgba(16,185,129,0.35)] transition-all duration-500"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[50px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-
-            <div className="flex items-center justify-between mb-4 relative z-20">
-              <h4 className="text-emerald-400 text-xs sm:text-sm font-bold tracking-widest uppercase flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                TryHackMe Profile
-              </h4>
-              <a href="https://tryhackme.com/p/SiddhSamarth" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-emerald-400 transition-colors">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-              </a>
+            <div className="pointer-events-none absolute inset-0 opacity-60">
+              <div className="absolute -inset-24 bg-[radial-gradient(circle_at_top,_rgba(52,211,153,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.24),_transparent_60%)]" />
             </div>
 
-            <div className="w-full flex justify-center relative z-10 transition-transform duration-500 group-hover:scale-[1.02]">
-              <iframe
-                src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2542397"
-                style={{ border: "none", width: "340px", height: "100px", maxWidth: "100%" }}
-                loading="lazy"
-                title="TryHackMe Badge"
-                className="pointer-events-auto rounded-xl drop-shadow-2xl"
-              />
+            <div className="relative z-10 flex flex-col gap-4">
+              <h4 className="text-emerald-200 text-[11px] sm:text-xs font-semibold tracking-[0.24em] uppercase flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.9)] animate-pulse" />
+                TryHackMe Profile
+              </h4>
+
+              <div className="w-full flex justify-center">
+                <iframe
+                  src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2542397"
+                  style={{ border: "none", width: "340px", height: "100px", maxWidth: "100%" }}
+                  loading="lazy"
+                  title="TryHackMe Badge"
+                  className="pointer-events-auto rounded-2xl shadow-[0_18px_45px_rgba(6,95,70,0.75)]"
+                />
+              </div>
             </div>
           </motion.div>
 
-          {/* LinkedIn Badge Block (Spans 3 cols) — direct native embed, no card wrapper */}
+          {/* LinkedIn Badge Block (Spans 3 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            className="md:col-span-3 lg:col-span-3 flex items-center justify-center"
+            className="md:col-span-3 lg:col-span-3 rounded-[2rem] border border-white/10 bg-[#09090b]/80 p-4 sm:p-6 backdrop-blur-xl relative overflow-hidden group hover:border-blue-400/40 shadow-lg hover:shadow-blue-500/20 transition-all duration-500 flex items-center justify-center"
           >
             <div
               onClick={() => window.open('https://linkedin.com/in/siddhsamarth', '_blank', 'noopener,noreferrer')}
@@ -212,7 +210,7 @@ function AboutMe() {
               role="link"
               aria-label="View Siddh Samarth's LinkedIn profile"
               tabIndex={0}
-              style={{ cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
+              style={{ cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}
             >
               <div
                 className="badge-base LI-profile-badge"
@@ -249,7 +247,7 @@ function AboutMe() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#09090b]/60 backdrop-blur-md rounded-[2rem] border border-white/5 p-6 sm:p-8"
+              className="pd-tilt relative overflow-hidden bg-[#09090b]/60 backdrop-blur-md rounded-[2rem] border border-white/5 p-6 sm:p-8 group hover:border-blue-400/40 hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-500"
             >
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                 <span className="w-8 h-px bg-white/20"></span>
@@ -278,7 +276,7 @@ function AboutMe() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="bg-[#09090b]/60 backdrop-blur-md rounded-[2rem] border border-white/5 p-6 sm:p-8"
+              className="pd-tilt relative overflow-hidden bg-[#09090b]/60 backdrop-blur-md rounded-[2rem] border border-white/5 p-6 sm:p-8 group hover:border-emerald-400/40 hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] transition-all duration-500"
             >
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                 <span className="w-8 h-px bg-white/20"></span>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -7,6 +7,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://siddhsamarth.in";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#000000",
+};
 
 export const metadata: Metadata = {
   title: "Siddh Samarth | Cybersecurity Analyst – SOC, SIEM & Threat Detection",
@@ -33,9 +41,9 @@ export const metadata: Metadata = {
     "Cybersecurity Portfolio India",
   ],
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   robots: {
     index: true,
@@ -71,13 +79,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
-  themeColor: "#000000",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -90,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Preconnect to external badge hosts for faster load */}
         <link rel="preconnect" href="https://tryhackme.com" />
